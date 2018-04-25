@@ -6,10 +6,10 @@
     <!--导航条toolbar-->
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
+        style="@style/MyToolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="?attr/actionBarSize"
-        android:background="?attr/colorPrimary" />
+        android:minHeight="?attr/actionBarSize" />
     <!--主布局和侧滑菜单-->
     <include layout="@layout/drawerlayout_main"/>
 </LinearLayout>

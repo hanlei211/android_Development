@@ -17,7 +17,6 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-
     <style name="MyToolbar" parent="Widget.AppCompat.Toolbar">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -31,5 +30,4 @@
         <item name="colorControlNormal">#FFF</item>
         <item name="colorControlHighlight">#FFF</item>
     </style>
-
 </resources>
