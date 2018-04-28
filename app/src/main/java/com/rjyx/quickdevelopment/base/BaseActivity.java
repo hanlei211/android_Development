@@ -1,5 +1,6 @@
 package com.rjyx.quickdevelopment.base;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Build;
@@ -58,6 +59,12 @@ public  abstract  class BaseActivity extends AppCompatActivity{
     }
 
 
+//    @Override
+//    protected void attachBaseContext(Context newBase) {
+//        // NOTE: icons stuff
+//        super.attachBaseContext(IconicsContextWrapper.wrap(newBase));
+//    }
+
     /**
      * [沉浸状态栏]
      */
@@ -112,6 +119,11 @@ public  abstract  class BaseActivity extends AppCompatActivity{
     protected void onDestroy() {
         unbinder.unbind();
         super.onDestroy();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
     }
 
     /**

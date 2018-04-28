@@ -5,4 +5,24 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+
+    <!--主题设置-->
+    <string name="preference_base_theme">basic_theme</string>
+    <string name="preference_primary_color">primary_color</string>
+    <string name="preference_accent_color">accent_color</string>
+    <string name="preference_translucent_status_bar">set_translucent_statusbar</string>
+    <string name="preference_colored_nav_bar">nav_bar</string>
+    <string name="preference_apply_theme_pager">apply_theme_img_act</string>
+    <string name="accent_color">Accent Color</string>
+    <string name="primary_color">Primary Color</string>
+    <string name="preference_transparency">set_alpha</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok_action">OK</string>
+
+
+    <string name="go_setting">去设置</string>
+    <string name="setting">设置</string>
+    <string name="status_bar">状态栏透明:</string>
+    <string name="set_theme_color">设置主题颜色</string>
+    <string name="set_nav_bar">设置导航栏颜色：</string>
 </resources>

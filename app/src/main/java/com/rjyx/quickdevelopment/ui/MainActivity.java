@@ -1,8 +1,10 @@
-package com.rjyx.quickdevelopment;
+package com.rjyx.quickdevelopment.ui;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -13,8 +15,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends AppCompatActivity
+import com.rjyx.quickdevelopment.R;
+import com.rjyx.quickdevelopment.base.BaseThemeActivity;
+import com.rjyx.quickdevelopment.util.ColorPaletteUtils;
+
+public class MainActivity extends BaseThemeActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +29,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
         //头部控件
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -51,6 +58,29 @@ public class MainActivity extends AppCompatActivity
             drawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
+        }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        updateNowTheme();
+        updateTheme();
+    }
+
+    private void updateNowTheme(){
+        toolbar.setPopupTheme(getPopupToolbarStyle());
+        toolbar.setBackgroundColor(getPrimaryColor());
+        toolbar.setTitle("");
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            if (isTranslucentStatusBar()) {
+                getWindow().setStatusBarColor(ColorPaletteUtils.getObscuredColor(getPrimaryColor()));
+            } else {
+                getWindow().setStatusBarColor(getPrimaryColor());
+            }
+            getWindow().setNavigationBarColor(isNavigationBarColored() ? getPrimaryColor() : ContextCompat.getColor(getApplicationContext(), R.color.md_black_1000));
+
         }
     }
 
@@ -93,8 +123,8 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_share) {
 
-        } else if (id == R.id.nav_send) {
-
+        } else if (id == R.id.nav_setting) {
+           startActivity(SettingActivity.class);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
